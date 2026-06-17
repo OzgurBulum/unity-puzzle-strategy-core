@@ -37,6 +37,7 @@ public class PlayerGridMovement : MonoBehaviour
 
             if (hit == null)
             {
+                LevelManager.Instance.SaveState();
                 transform.position = targetPosition;
             }
             else if (hit.CompareTag("Box"))
@@ -46,8 +47,9 @@ public class PlayerGridMovement : MonoBehaviour
               
                if (nextCellHit == null)
                {
-                   hit.transform.position = boxTargetPosition;
-                   transform.position = targetPosition;
+                  LevelManager.Instance.SaveState();
+                  hit.transform.position = boxTargetPosition;
+                  transform.position = targetPosition;
                }
             }
         }
